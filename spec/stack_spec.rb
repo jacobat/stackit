@@ -1,38 +1,36 @@
 require 'stack'
 describe Stack do
-  it "should be empty when first created" do
-    Stack.new.should be_empty
+  before { @stack = Stack.new }
+
+  describe "before pushing" do
+    subject { @stack }
+    it { should be_empty }
+    it "should return nil when popping" do
+      subject.pop.should be_nil
+    end
   end
   
-  it "should not be empty when something is pushed onto it" do
-    stack = Stack.new
-    stack.push(1)
-    stack.should_not be_empty
+  describe "after one push" do
+    before { @stack.push("Hello, world") }
+    subject { @stack }
+    it { should_not be_empty }
+    it { should have(1).items }
+    it "should return item when popped" do
+      subject.pop.should == "Hello, world"
+    end
   end
-
-  it "size should be incremented by 1 when something is pushed onto it" do
+  
+  it "should increment size by 1 when pushing" do
     stack = Stack.new
     lambda{
       stack.push("Hello World!")
     }.should change(stack, :size).by(1)
   end
 
-  it "result should be saved in var when something is pop'ed from it" do
-    stack = Stack.new
-    stack.push("mooh")
-    stack.pop.should == "mooh"
-  end
-
-  it "pop from empty stack should give nil" do
-    stack = Stack.new
-    stack.pop.should == nil
-  end
-
-  it "size should be decremented by 1 when something is pop'ed from it" do
-    stack = Stack.new
-    stack.push("Office")
+  it "should decrement size by 1 when popping" do
+    @stack.push("Office")
     lambda{
-      stack.pop
-    }.should change(stack, :size).by(-1)
+      @stack.pop
+    }.should change(@stack, :size).by(-1)
   end
 end
