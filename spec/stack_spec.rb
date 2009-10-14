@@ -21,10 +21,9 @@ describe Stack do
   end
   
   it "should increment size by 1 when pushing" do
-    stack = Stack.new
     lambda{
-      stack.push("Hello World!")
-    }.should change(stack, :size).by(1)
+      @stack.push("Hello World!")
+    }.should change(@stack, :size).by(1)
   end
 
   it "should decrement size by 1 when popping" do
