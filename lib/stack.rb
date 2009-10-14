@@ -1,5 +1,12 @@
 class Stack
+  def initialize
+    @stack = []
+  end
   def empty?
-    true
+    @stack.empty?
+  end
+  
+  def push(myPush)
+    @stack.push(myPush)
   end
 end
