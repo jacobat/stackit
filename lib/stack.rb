@@ -14,4 +14,8 @@ class Stack
   def push(myPush)
     @stack.push(myPush)
   end
+
+  def pop
+    @stack.pop
+  end
 end
