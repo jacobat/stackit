@@ -9,4 +9,10 @@ describe Stack do
     stack.push(1)
     stack.should_not be_empty
   end
+
+  it "size should be incremented by 1 when something is pushed onto it" do
+    lambda{
+      stack.push("Hello World!")
+    }.should change stack.size.by(1)
+  end
 end
