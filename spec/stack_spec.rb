@@ -23,6 +23,14 @@ describe Stack do
     stack.pop.should == "mooh"
   end
 
+  it "pop from empty stack should give nil" do
+    stack = Stack.new
+    myPop = "MyStuff"
+    lambda{
+      myPop = stack.pop
+    }.should change {myPop}.from("MyStuff").to(nil)
+  end
+
   it "size should be decremented by 1 when something is pop'ed from it" do
     stack = Stack.new
     stack.push("Office")
