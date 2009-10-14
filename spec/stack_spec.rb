@@ -11,8 +11,9 @@ describe Stack do
   end
 
   it "size should be incremented by 1 when something is pushed onto it" do
+    stack = Stack.new
     lambda{
       stack.push("Hello World!")
-    }.should change stack.size.by(1)
+    }.should change(stack, :size).by(1)
   end
 end
