@@ -16,4 +16,21 @@ describe Stack do
       stack.push("Hello World!")
     }.should change(stack, :size).by(1)
   end
+
+  it "result should be saved in var when something is pop'ed from it" do
+    stack = Stack.new
+    myPop =
+    stack.push("mooh")
+    lambda{
+      myPop = stack.pop
+    }.should change {myPop}.from(nil).to("mooh")
+  end
+
+  it "size should be decremented by 1 when something is pop'ed from it" do
+    stack = Stack.new
+    stack.push("Office")
+    lambda{
+      stack.pop
+    }.should change(stack, :size).by(-1)
+  end
 end
