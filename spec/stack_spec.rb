@@ -19,11 +19,8 @@ describe Stack do
 
   it "result should be saved in var when something is pop'ed from it" do
     stack = Stack.new
-    myPop =
     stack.push("mooh")
-    lambda{
-      myPop = stack.pop
-    }.should change {myPop}.from(nil).to("mooh")
+    stack.pop.should == "mooh"
   end
 
   it "size should be decremented by 1 when something is pop'ed from it" do
