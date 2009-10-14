@@ -25,10 +25,7 @@ describe Stack do
 
   it "pop from empty stack should give nil" do
     stack = Stack.new
-    myPop = "MyStuff"
-    lambda{
-      myPop = stack.pop
-    }.should change {myPop}.from("MyStuff").to(nil)
+    stack.pop.should == nil
   end
 
   it "size should be decremented by 1 when something is pop'ed from it" do
